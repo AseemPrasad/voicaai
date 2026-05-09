@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model AnalysisLog {
+  id           Int      @id @default(autoincrement())
+  message      String
+  engine       String
+  intent       String?
+  businessType String?
+  urgency      String?
+  summary      String?
+  createdAt    DateTime @default(now())
+}
